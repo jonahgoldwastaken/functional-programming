@@ -10,6 +10,7 @@
     "wrangle": "node dist"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ramda": "^0.27.1"
   },
   "devDependencies": {
