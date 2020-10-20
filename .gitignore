@@ -4,3 +4,4 @@ dist/
 .env
 *.csv
 *.json
+.DS_Store
