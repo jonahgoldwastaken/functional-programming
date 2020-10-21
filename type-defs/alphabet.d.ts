@@ -1,8 +1,9 @@
 declare module 'alphabet' {
-  const alphabet: string[]
+  declare const alphabet: string[]
+  declare const upper: string[]
+  declare const lower: string[]
 
-  export default alphabet
-
-  export const upper: string[]
-  export const lower: string[]
+  exports.default = alphabet
+  exports.upper = upper
+  exports.lower = lower
 }
