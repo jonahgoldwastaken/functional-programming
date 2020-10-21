@@ -36,12 +36,6 @@ const validValues = [
   'indisch',
   'arabisch',
   'chinees',
-  'html',
-  'scss',
-  'javascript',
-  'jquery',
-  'php',
-  'alles',
 ]
 
 /**
