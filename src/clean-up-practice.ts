@@ -1,5 +1,6 @@
 import data from './practice-data.json'
 import { compose } from 'ramda'
+import { upper } from 'alphabet'
 
 /*
   This is a data clean-up practice based on data from a questionnaire me and other students have filled in. The data is not publicly available, so if you want to run this code you need to supply your own data that's similar.
@@ -51,6 +52,11 @@ const shortenedValues = {
   EN: 'Engels',
   ENG: 'Engels',
 }
+
+const sortLanguagesAlphabetically = (answers: string[][]) =>
+  answers.map(item =>
+    item.sort((a, b) => (upper.indexOf(a[0]) > upper.indexOf(b[0]) ? 1 : -1))
+  )
 
 /**
  * Capitalises the first letter of the language and the first letter after a dash
@@ -105,6 +111,7 @@ const pickSpokenLanguages = (d: typeof data) =>
  * Composition of all the functions above to pass the data into
  */
 const cleanUpSpokenLanguages = compose(
+  sortLanguagesAlphabetically,
   capitaliseLanguages,
   filterLanguagesOnInvalidValues,
   expandShortenedLanguages,
