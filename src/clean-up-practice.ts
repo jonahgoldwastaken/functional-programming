@@ -1,5 +1,5 @@
 import data from './data/practice-data.json'
-import { compose } from 'ramda'
+import { pipe } from 'ramda'
 import { upper } from 'alphabet'
 
 /*
@@ -108,13 +108,13 @@ const pickSpokenLanguages = (d: typeof data) =>
 /**
  * Composition of all the functions above to pass the data into
  */
-const cleanUpSpokenLanguages = compose(
-  sortLanguagesAlphabetically,
-  capitaliseLanguages,
-  filterLanguagesOnInvalidValues,
-  expandShortenedLanguages,
+const cleanUpSpokenLanguages = pipe(
+  pickSpokenLanguages,
   splitLanguageString,
-  pickSpokenLanguages
+  expandShortenedLanguages,
+  filterLanguagesOnInvalidValues,
+  capitaliseLanguages,
+  sortLanguagesAlphabetically
 )
 
 console.log(cleanUpSpokenLanguages(data))
