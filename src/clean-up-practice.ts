@@ -47,6 +47,10 @@ const shortenedValues = {
   ENG: 'Engels',
 }
 
+/**
+ * Sorts the languages given as answers alphabetically based on their first letters
+ * @param answers Array of language answers
+ */
 const sortLanguagesAlphabetically = (answers: string[][]) =>
   answers.map(item =>
     item.sort((a, b) => (upper.indexOf(a[0]) > upper.indexOf(b[0]) ? 1 : -1))
