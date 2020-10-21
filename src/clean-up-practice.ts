@@ -3,10 +3,10 @@ import { pipe } from 'ramda'
 import { upper } from 'alphabet'
 
 /*
-  This is a data clean-up practice based on data from a questionnaire me and other students have filled in. The data is not publicly available, so if you want to run this code you need to supply your own data that's similar.
+  This is a data clean-up practice based on data from a questionnaire me and other students have filled in. The data is not publicly available, so if you want to run this code you need to supply your own data that has a similar structure.
 
   Data requirements:
-    The JSON data is a array containing objects that have a "gesprokenTalen" property/key
+    The JSON data is an array containing objects that has a "gesprokenTalen" property/key
 */
 
 /**
