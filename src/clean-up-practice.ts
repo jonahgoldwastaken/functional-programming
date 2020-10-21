@@ -48,12 +48,38 @@ const shortenedValues = {
 }
 
 /**
- * Sorts the languages given as answers alphabetically based on their first letters
+ * Picks the languages answers from the dataset
+ * @param d Raw data array
+ */
+const pickSpokenLanguages = (d: typeof data) =>
+  d.map(item => item.gesprokenTalen)
+
+/**
+ * Splits the language answers so that every language has its own place in an array of languages
  * @param answers Array of language answers
  */
-const sortLanguagesAlphabetically = (answers: string[][]) =>
+const splitLanguageString = (answers: string[]) =>
+  answers.map(val => val.slice().split(/;|,|\.|\s/))
+
+/**
+ * Expands short answers to their full language counterpart
+ * @param answers Array of language answers
+ */
+const expandShortenedLanguages = (answers: string[][]) =>
+  answers.map(item => item.map(lang => (shortenedValues as any)[lang] || lang))
+
+/**
+ * Filters languages on if it's an empty string, a number and if it exists in the validValues array
+ * @param answers Array of language answers
+ */
+const filterLanguagesOnInvalidValues = (answers: string[][]) =>
   answers.map(item =>
-    item.sort((a, b) => (upper.indexOf(a[0]) > upper.indexOf(b[0]) ? 1 : -1))
+    item.filter(
+      lang =>
+        lang.length &&
+        Number.isNaN(Number(lang)) &&
+        validValues.includes(lang.toLowerCase())
+    )
   )
 
 /**
@@ -71,39 +97,13 @@ const capitaliseLanguages = (answers: string[][]) =>
   )
 
 /**
- * Filters languages on if it's an empty string, a number and if it exists in the validValues array
+ * Sorts the languages given as answers alphabetically based on their first letters
  * @param answers Array of language answers
  */
-const filterLanguagesOnInvalidValues = (answers: string[][]) =>
+const sortLanguagesAlphabetically = (answers: string[][]) =>
   answers.map(item =>
-    item.filter(
-      lang =>
-        lang.length &&
-        Number.isNaN(Number(lang)) &&
-        validValues.includes(lang.toLowerCase())
-    )
+    item.sort((a, b) => (upper.indexOf(a[0]) > upper.indexOf(b[0]) ? 1 : -1))
   )
-
-/**
- * Expands short answers to their full language counterpart
- * @param answers Array of language answers
- */
-const expandShortenedLanguages = (answers: string[][]) =>
-  answers.map(item => item.map(lang => (shortenedValues as any)[lang] || lang))
-
-/**
- * Splits the language answers so that every language has its own place in an array of languages
- * @param answers Array of language answers
- */
-const splitLanguageString = (answers: string[]) =>
-  answers.map(val => val.slice().split(/;|,|\.|\s/))
-
-/**
- * Picks the languages answers from the dataset
- * @param d Raw data array
- */
-const pickSpokenLanguages = (d: typeof data) =>
-  d.map(item => item.gesprokenTalen)
 
 /**
  * Composition of all the functions above to pass the data into
