@@ -2,6 +2,6 @@ node_modules/
 dist/
 .cache/
 .env
-*.csv
-*.json
+src/**/*.csv
+src/**/*.json
 .DS_Store

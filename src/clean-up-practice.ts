@@ -1,4 +1,4 @@
-import data from './practice-data.json'
+import data from './data/practice-data.json'
 import { compose } from 'ramda'
 import { upper } from 'alphabet'
 
