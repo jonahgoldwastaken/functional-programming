@@ -1,4 +1,7 @@
-import { replaceStringForObjectValue, stringIsInArray } from 'utilities/strings'
+import {
+  replaceStringForObjectValue,
+  stringIsInArray,
+} from '../utilities/strings'
 
 const shortenedLanguages = {
   NL: 'Nederlands',
