@@ -1,7 +1,0 @@
-{
-  "watch": [
-    "dist/"
-  ],
-  "ext": "js,json",
-  "exec": "node dist/clean-up-practice.js"
-}

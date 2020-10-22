@@ -8,11 +8,9 @@
   "scripts": {
     "watch-src": "nodemon --config config/nodemon-src.json",
     "watch-dist": "nodemon --config config/nodemon-dist.json",
-    "watch-practice": "nodemon --config config/nodemon-practice.json",
     "watch": "concurrently \"yarn:watch-src\" \"yarn:watch-dist\"",
-    "practice": "concurrently \"yarn:watch-src\" \"yarn:watch-practice\"",
     "build": "tsc",
-    "wrangle": "node dist"
+    "start": "node dist"
   },
   "dependencies": {
     "alphabet": "^1.0.0",
