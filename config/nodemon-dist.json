@@ -3,5 +3,6 @@
     "dist/"
   ],
   "ext": "js,json",
-  "exec": "node dist"
+  "exec": "node dist",
+  "delay": 500
 }
