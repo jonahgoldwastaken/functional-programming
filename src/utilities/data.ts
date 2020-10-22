@@ -1,5 +1,5 @@
-export const pickKeyFromDataset = (key: string) => (dataset: any[]) =>
-  [...dataset].map(item => item[key])
+export const pickKeyFromDataset = (key: string) => (dataset: GenericObject) =>
+  dataset[key]
 
 export const convertObjectKeys = <obj extends GenericObject>(
   newKeysObj: obj
