@@ -6,11 +6,9 @@ import { sortArrayOfStringsAlphabetically } from '../utilities/array'
 import { pickKeyFromDataset } from '../utilities/data'
 import { capitaliseString, splitStringOnRegex } from '../utilities/strings'
 
-const pickLanguagesFromDataset = pickKeyFromDataset('gesprokenTalen')
-
 const parseLanguages = <T>(dataset: T[]) =>
   dataset
-    .map(pickLanguagesFromDataset)
+    .map(pickKeyFromDataset('gesprokenTalen'))
     .map(splitStringOnRegex(/;|,|\.|\s/))
     .map((ans: string[]) =>
       ans
