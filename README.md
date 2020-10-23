@@ -50,6 +50,7 @@ yarn start # Starts Node in the dist folder
 ## Tools used
 
 - [NodeJS](https://nodejs.org/en/)
+- [Yarn Classic](https://classic.yarnpkg.com/lang/en/)
 - [TypeScript](https://www.typescriptlang.org)
-- [Ramda](https://github.com/ramda/ramda)
+- [Nodemon](https://nodemon.io)
 - [dotenv](https://github.com/motdotla/dotenv)
