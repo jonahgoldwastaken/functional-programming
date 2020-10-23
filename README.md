@@ -49,11 +49,11 @@ yarn start # Starts Node in the dist folder
 
 ## Functional Programming Principles Applied
 
-- Composition (just realised I interpreted the "modules" folder wrong from [this](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/composition.md) example, so this will be changed in a future commit)
-- Functional purity: All functions give the same output when the same input is used
-- Data immutability: All data passed into the functions is copied and then mutated, so that the original data itself is never mutated.
-- Currying: All functions return a function that can be used in a Higher-order function.
-- Higher order function: All functions created can be passed into these to manipulate the data passed.
+- [Composition](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/composition.md) (just realised I interpreted the "modules" folder wrong from the linked example, so this will be changed in a future commit)
+- [Functional purity](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/impure.md): All functions give the same output when the same input is used
+- [Data immutability](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/immutability.md): All data passed into the functions is copied and then mutated, so that the original data itself is never mutated.
+- [Currying](https://en.wikipedia.org/wiki/Currying): All functions return a function that can be used in a Higher-order function.
+- [Higher order functions](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/ho-functions.md): All functions created can be passed into these to manipulate the data passed.
 
 ## Tools used
 
