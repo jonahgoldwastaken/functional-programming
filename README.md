@@ -37,6 +37,14 @@ yarn start # Starts Node in the dist folder
 └── config # Contains the nodemon configurations used for development of this project.
 ```
 
+## Functional Programming Principles Applied
+
+- Composition (just realised I interpreted the "modules" folder wrong from [this](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/composition.md) example, so this will be changed in a future commit)
+- Functional purity: All functions give the same output when the same input is used
+- Data immutability: All data passed into the functions is copied and then mutated, so that the original data itself is never mutated.
+- Currying: All functions return a function that can be used in a Higher-order function.
+- Higher order function: All functions created can be passed into these to manipulate the data passed.
+
 ## Learning goals
 
 - Understanding and applying Functional Programming principles:
