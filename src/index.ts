@@ -5,4 +5,4 @@ import data from './data/practice-data.json'
 import parsePets from './modules/parsePets'
 
 // console.log(parseLanguage(data))
-console.log(parsePets(data))
+console.dir(parsePets(data))

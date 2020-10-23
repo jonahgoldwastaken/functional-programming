@@ -21,3 +21,5 @@ export const stringIsInArray = (arr: string[]) => (str: string) =>
 export const replaceStringForObjectValue = (obj: GenericObject) => (
   str: string
 ) => obj[str] ?? str
+
+export const stringContainsString = (compareStr: string) => (str: string) => str.includes(compareStr)
