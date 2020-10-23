@@ -61,4 +61,5 @@ yarn start # Starts Node in the dist folder
 - [Yarn Classic](https://classic.yarnpkg.com/lang/en/)
 - [TypeScript](https://www.typescriptlang.org)
 - [Nodemon](https://nodemon.io)
+- [ramda](https://github.com/ramda/ramda)
 - [dotenv](https://github.com/motdotla/dotenv)
