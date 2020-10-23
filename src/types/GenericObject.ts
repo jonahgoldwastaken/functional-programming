@@ -1,3 +1,3 @@
-interface GenericObject {
-  [key: string]: any
+interface GenericObject<T = any> {
+  [key: string]: T
 }
