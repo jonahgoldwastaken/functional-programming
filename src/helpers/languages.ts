@@ -12,7 +12,7 @@ const shortenedLanguages = {
 /**
  * List of valid languages pulled from the practice data
  */
-const validLanguages = [
+export const validLanguages = [
   'nederlands',
   'engels',
   'duits',
@@ -36,6 +36,9 @@ const validLanguages = [
   'indisch',
   'arabisch',
   'chinees',
+  'nl',
+  'en',
+  'eng',
 ]
 
 export const filterOnValidLanguages = (lang: string) =>

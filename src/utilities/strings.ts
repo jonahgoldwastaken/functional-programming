@@ -13,7 +13,7 @@ export const capitaliseString = (str: string) =>
   `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`
 
 export const stringIsValidString = (str: string) =>
-  str.length && Number.isNaN(Number(str))
+  str.length && Number.isNaN(Number(str)) ? true : false
 
 export const stringIsInArray = (arr: string[]) => (str: string) =>
   [...arr].map(val => val.toLowerCase()).includes(str.toLowerCase())
@@ -22,4 +22,5 @@ export const replaceStringForObjectValue = (obj: GenericObject) => (
   str: string
 ) => obj[str] ?? str
 
-export const stringContainsString = (compareStr: string) => (str: string) => str.includes(compareStr)
+export const stringContainsString = (compareStr: string) => (str: string) =>
+  str.includes(compareStr)

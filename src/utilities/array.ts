@@ -12,7 +12,7 @@ export const sortArrayOfStringsAlphabetically = (a: string, b: string) =>
 export const filterStringFromArray = (filterStr: string) => (str: string) =>
   !(str.slice().toLowerCase() === filterStr.slice().toLowerCase())
 
-export const filterRegexFromArray = (filterRegex: RegExp) => (str: string) =>
+export const filterRegExFromArray = (filterRegex: RegExp) => (str: string) =>
   !str.slice().toLowerCase().match(filterRegex)
 
 export const filterEmptyArraysFromArray = (arr: any[]) => [...arr].length

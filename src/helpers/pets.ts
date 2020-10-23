@@ -1,6 +1,6 @@
 import { stringIsInArray } from '../utilities/strings'
 
-const validPets = [
+export const validPets = [
   'kat',
   'kat',
   'hond',
