@@ -2,6 +2,16 @@
 
 This repo is created to process data provided by De Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Netherlands Vehicle Authority), and contains many different variables that can be put together, combined, made relationships of.
 
+## Learning goals
+
+- Understanding and applying Functional Programming principles:
+  - Pure and Impure functions
+  - Higher-order functions
+  - Composition
+  - Currying
+  - Immutability
+- Data processing techniques
+
 ## Getting started
 
 ### Setting up the repo
@@ -44,16 +54,6 @@ yarn start # Starts Node in the dist folder
 - Data immutability: All data passed into the functions is copied and then mutated, so that the original data itself is never mutated.
 - Currying: All functions return a function that can be used in a Higher-order function.
 - Higher order function: All functions created can be passed into these to manipulate the data passed.
-
-## Learning goals
-
-- Understanding and applying Functional Programming principles:
-  - Pure and Impure functions
-  - Higher-order functions
-  - Composition
-  - Currying
-  - Immutability
-- Data processing techniques
 
 ## Tools used
 
