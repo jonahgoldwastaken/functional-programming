@@ -6,7 +6,7 @@
   "author": "Jonah Meijers <jonahmeijers97@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch-src": "nodemon --config config/nodemon-src.json",
+    "watch-src": "tsc -w",
     "watch-dist": "nodemon --config config/nodemon-dist.json",
     "watch": "concurrently \"yarn:watch-src\" \"yarn:watch-dist\"",
     "build": "tsc",
