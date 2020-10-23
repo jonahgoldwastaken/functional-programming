@@ -1,5 +1,5 @@
 import { pipe } from 'ramda'
-import { pickKeyFromDataset } from '../utilities/data'
+import { pickKeyFromObject } from '../utilities/object'
 import {
   replaceStringThroughRegex,
   splitStringOnRegex,
@@ -7,7 +7,7 @@ import {
 
 const parsePets = <T>(dataset: T[]) =>
   [...dataset]
-    .map(pickKeyFromDataset('huisDieren'))
+    .map(pickKeyFromObject('huisDieren'))
     .map(
       pipe(replaceStringThroughRegex(/\s/, ''), splitStringOnRegex(/-|,|\.|:/))
     )

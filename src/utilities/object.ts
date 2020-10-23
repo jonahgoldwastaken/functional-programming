@@ -1,4 +1,4 @@
-export const pickKeyFromDataset = (key: string) => (dataset: GenericObject) =>
+export const pickKeyFromObject = (key: string) => (dataset: GenericObject) =>
   ({ ...dataset }[key])
 
 export const convertObjectKeys = <obj extends GenericObject>(
