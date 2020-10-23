@@ -6,7 +6,7 @@ import {
 } from '../utilities/strings'
 
 const parsePets = <T>(dataset: T[]) =>
-  dataset
+  [...dataset]
     .map(pickKeyFromDataset('huisDieren'))
     .map(
       pipe(replaceStringThroughRegex(/\s/, ''), splitStringOnRegex(/-|,|\.|:/))

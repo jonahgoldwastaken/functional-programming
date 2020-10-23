@@ -10,7 +10,7 @@ export const replaceStringThroughRegex = (
 ) => (str: string) => str.slice().replace(regex, replacementVal)
 
 export const capitaliseString = (str: string) =>
-  `${str[0].toUpperCase()}${str.slice(1)}`
+  `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`
 
 export const stringIsValidString = (str: string) =>
   str.length && Number.isNaN(Number(str))

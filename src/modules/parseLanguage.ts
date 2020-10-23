@@ -7,7 +7,7 @@ import { pickKeyFromDataset } from '../utilities/data'
 import { capitaliseString, splitStringOnRegex } from '../utilities/strings'
 
 const parseLanguages = <T>(dataset: T[]) =>
-  dataset
+  [...dataset]
     .map(pickKeyFromDataset('gesprokenTalen'))
     .map(splitStringOnRegex(/;|,|\.|\s/))
     .map((ans: string[]) =>
