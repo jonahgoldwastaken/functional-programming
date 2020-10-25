@@ -1,10 +1,10 @@
 import { resolve } from 'path'
 require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
-import { map, pipe, sort } from 'ramda'
+import { filter, map, pipe, sort } from 'ramda'
 import data from './data/practice-data.json'
 import {
   filterStringOnValidLanguages,
-  mapExpandCapitaliseLanguages,
+  mapExpandCapitaliseLanguage,
 } from './helpers/languages'
 import { filterStringOnValidPets } from './helpers/pets'
 import { pickKeySplitVals } from './modules/objectArray'
@@ -17,7 +17,7 @@ const parseData = (data: GenericObject<string>[]) => {
     map(
       pipe(
         filterValidStringsWithFunc(filterStringOnValidLanguages),
-        mapExpandCapitaliseLanguages,
+        map(mapExpandCapitaliseLanguage),
         sort(sortArrayOfStringsAlphabetically)
       )
     )

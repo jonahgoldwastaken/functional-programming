@@ -1,7 +1,8 @@
 import { map, pipe } from 'ramda'
 import {
   filterStringsInArray,
-  mapCapitaliseString, replaceStringForObjectValue
+  mapCapitaliseString,
+  replaceStringForObjectValue,
 } from '../utilities/strings'
 
 const shortenedLanguages = {
@@ -50,9 +51,7 @@ export const mapExpandShortenedLanguage: (
   lang: string
 ) => string = replaceStringForObjectValue(shortenedLanguages)
 
-export const mapExpandCapitaliseLanguages: (
-  langs: string[]
-) => string[] = pipe(
-  map(mapExpandShortenedLanguage),
-  map(mapCapitaliseString),
+export const mapExpandCapitaliseLanguage: (langs: string) => string = pipe(
+  mapExpandShortenedLanguage,
+  mapCapitaliseString
 )

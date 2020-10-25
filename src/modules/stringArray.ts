@@ -10,5 +10,5 @@ export const filterValidStringsWithFunc: (
 
 export const filterValidStringsWithArr: (
   validStringArr: string[]
-) => (arr: string[]) => string[] = arr =>
-  pipe(filter(stringIsValidString), filter(filterStringsInArray(arr)))
+) => (arr: string[]) => string[] = validArr =>
+  pipe(filter(stringIsValidString), filter(filterStringsInArray(validArr)))
