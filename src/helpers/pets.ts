@@ -16,6 +16,6 @@ export const validPets = [
   'gup',
 ]
 
-export const filterOnValidPets: (str: string) => boolean = filterStringsInArray(
+export const filterStringOnValidPets: (str: string) => boolean = filterStringsInArray(
   validPets
 )

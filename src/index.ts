@@ -6,7 +6,7 @@ import {
   filterStringOnValidLanguages,
   mapExpandCapitaliseSortLanguages,
 } from './helpers/languages'
-import { filterOnValidPets as filterStringOnValidPets } from './helpers/pets'
+import { filterStringOnValidPets } from './helpers/pets'
 import { pickKeySplitVals } from './modules/objectArray'
 import { filterValidStringsWithFunc } from './modules/stringArray'
 
