@@ -1,9 +1,7 @@
-import { map, pipe, sort } from 'ramda'
-import { sortArrayOfStringsAlphabetically } from '../utilities/array'
+import { map, pipe } from 'ramda'
 import {
-  replaceStringForObjectValue,
   filterStringsInArray,
-  mapCapitaliseString,
+  mapCapitaliseString, replaceStringForObjectValue
 } from '../utilities/strings'
 
 const shortenedLanguages = {
@@ -52,10 +50,9 @@ export const mapExpandShortenedLanguage: (
   lang: string
 ) => string = replaceStringForObjectValue(shortenedLanguages)
 
-export const mapExpandCapitaliseSortLanguages: (
+export const mapExpandCapitaliseLanguages: (
   langs: string[]
 ) => string[] = pipe(
   map(mapExpandShortenedLanguage),
   map(mapCapitaliseString),
-  sort(sortArrayOfStringsAlphabetically)
 )
