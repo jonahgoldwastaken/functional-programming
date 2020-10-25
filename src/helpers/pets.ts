@@ -1,4 +1,4 @@
-import { stringIsInArray } from '../utilities/strings'
+import { filterStringsInArray } from '../utilities/strings'
 
 export const validPets = [
   'kat',
@@ -16,4 +16,6 @@ export const validPets = [
   'gup',
 ]
 
-export const isInValidPets = (str: string) => stringIsInArray(validPets)(str)
+export const filterOnValidPets: (str: string) => boolean = filterStringsInArray(
+  validPets
+)
