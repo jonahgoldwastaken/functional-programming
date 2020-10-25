@@ -1,26 +1,27 @@
 import { resolve } from 'path'
-import { filter, map, pipe } from 'ramda'
-import data from './data/practice-data.json'
-import { validLanguages } from './helpers/languages'
-import { validPets } from './helpers/pets'
-import {
-  filterInvalidSurveyAnswers,
-  pickAndReadySurveyAnswersForParsing,
-} from './modules/readySurveyAnswers'
-import { stringIsValidString } from './utilities/strings'
 require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
+import { map, pipe } from 'ramda'
+import data from './data/practice-data.json'
+import {
+  filterStringOnValidLanguages,
+  mapExpandCapitaliseSortLanguages,
+} from './helpers/languages'
+import { filterOnValidPets as filterStringOnValidPets } from './helpers/pets'
+import { pickKeySplitVals } from './modules/objectArray'
+import { filterValidStringsWithFunc } from './modules/stringArray'
 
 const parseData = (data: GenericObject<string>[]) => {
   const parsedLangauges = pipe(
-    pickAndReadySurveyAnswersForParsing('gesprokenTalen'),
-    map(filterInvalidSurveyAnswers()(validLanguages))
+    pickKeySplitVals('gesprokenTalen'),
+    map(filterValidStringsWithFunc(filterStringOnValidLanguages)),
+    map(mapExpandCapitaliseSortLanguages)
   )(data)
 
   console.log(parsedLangauges)
 
   const parsedPets = pipe(
-    pickAndReadySurveyAnswersForParsing('huisDieren'),
-    map(filterInvalidSurveyAnswers(/geen/)(validPets))
+    pickKeySplitVals('huisDieren'),
+    map(filterValidStringsWithFunc(filterStringOnValidPets))
   )(data)
 
   console.log(parsedPets)

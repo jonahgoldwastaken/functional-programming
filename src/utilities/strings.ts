@@ -9,13 +9,15 @@ export const replaceStringThroughRegex = (
   replacementVal: string
 ) => (str: string) => str.slice().replace(regex, replacementVal)
 
-export const capitaliseString = (str: string) =>
+export const mapCapitaliseString = (str: string) =>
   `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`
 
 export const stringIsValidString = (str: string) =>
   str.length && Number.isNaN(Number(str)) ? true : false
 
-export const stringIsInArray = (arr: string[]) => (str: string) =>
+export const filterStringsInArray: (
+  testArr: string[]
+) => (str: string) => boolean = arr => str =>
   [...arr].map(val => val.toLowerCase()).includes(str.toLowerCase())
 
 export const replaceStringForObjectValue = (obj: GenericObject) => (
