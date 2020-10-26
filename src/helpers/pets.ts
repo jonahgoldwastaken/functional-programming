@@ -24,6 +24,7 @@ export const validPets = [
   'gup',
   'katten',
   'vissen',
+  'vogels',
 ]
 
 export const petLookUpTable = {
