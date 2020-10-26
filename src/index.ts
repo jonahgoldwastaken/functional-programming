@@ -68,7 +68,6 @@ const parsePets = (data: GenericObject<string>[]) => {
 
 const parseSurveyData = (data: GenericObject<string>[]) => {
   parseLanguages(data)
-
   parsePets(data)
 }
 
