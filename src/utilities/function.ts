@@ -1,4 +1,4 @@
-export const runFunctionIfTrue = (bool: boolean) => <R>(
-  funcTrue: (...args: any[]) => R,
+export const returnFuncIfTrue = (bool: boolean) => <R>(
+  func: (...args: any[]) => R,
   ...args: any[]
-): R | false => (bool ? funcTrue(...args) : false)
+): R | false => (bool ? func(...args) : false)

@@ -1,5 +1,6 @@
 import { upper } from 'alphabet'
-import { includes } from 'ramda'
+import { filter, includes, isEmpty } from 'ramda'
+import { getType } from './type'
 
 export const sortArrayOfStringsAlphabetically = (a: string, b: string) =>
   upper.indexOf(a[0]) > upper.indexOf(b[0])
@@ -19,7 +20,7 @@ export const arrayIsArray = (arr: any | any[]) => Array.isArray(arr)
 export const filterEmptyArraysFromArray = (arr: any[]) => [...arr].length
 
 export const mapEmptyArraysInArrayToOtherValue = <T>(val: T) => (arr: T[]) =>
-  arr.length ? [...arr] : val
+  arr.length ? arr : val
 
 export const reduceArrayValuesToOccurenceAmount = <T>(
   acc: OccurenceTuple<T>[],

@@ -1,15 +1,15 @@
 import { writeFileSync } from 'fs'
 import { resolve } from 'path'
-require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
-import { filter, map, pipe, reduce, reject, sort, toLower } from 'ramda'
+import { filter, map, pipe, reject, sort, toLower } from 'ramda'
 import data from './data/practice-data.json'
 import {
   filterStringOnValidLanguages,
   mapExpandCapitaliseLanguage,
 } from './helpers/languages'
-import { irrelevantValues, petLookUpTable, petReducer } from './helpers/pets'
+import { filterInvalidPetValues, irrelevantValues, petLookUpTable, petReducer } from './helpers/pets'
 import { mapRunFuncIfCurrValIsArr } from './modules/arrayFunction'
 import { pickKeySplitVals } from './modules/objectArray'
+import { filterInvalidStringOccurenceTuples } from './modules/occurenceTuple'
 import {
   arrayValueContainsString,
   filterValidStringsWithFunc,
@@ -24,6 +24,7 @@ import {
   stringEqualsString,
   stringMatchesRegEx,
 } from './utilities/strings'
+require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
 
 const parseData = (data: GenericObject<string>[]) => {
   const parsedLangauges = pipe(
@@ -37,7 +38,7 @@ const parseData = (data: GenericObject<string>[]) => {
     )
   )(data)
 
-  console.log(parsedLangauges)
+  // console.log(parsedLangauges)
 
   const parsedPets = pipe(
     pickKeySplitVals('huisDieren'),
@@ -49,15 +50,15 @@ const parseData = (data: GenericObject<string>[]) => {
         reject(arrayValueContainsString(irrelevantValues)),
         map(pipe(toLower, replaceStringForObjectValue(petLookUpTable))),
         mapEmptyArraysInArrayToOtherValue('Heeft geen huisdieren'),
-        mapRunFuncIfCurrValIsArr<string>(reduce, petReducer, {
-          names: [],
-          amount: [],
-        })
+        mapRunFuncIfCurrValIsArr<string, PetData>(
+          petReducer({ amount: [], names: [] })
+        ),
+        filterInvalidPetValues
       )
     )
   )(data)
 
-  console.log(parsedPets)
+  // console.log(parsedPets)
 
   writeFileSync(
     resolve(__dirname, 'pets-test.json'),

@@ -1,9 +1,23 @@
-import { arch } from 'os'
-import { parse } from 'path'
-import { findIndex, length } from 'ramda'
+import {
+  all,
+  allPass,
+  anyPass,
+  clone,
+  empty,
+  filter,
+  isEmpty,
+  length,
+  nth,
+  pick,
+  pipe,
+  __,
+} from 'ramda'
+import { filterInvalidStringOccurenceTuples } from '../modules/occurenceTuple'
+import { getType } from '../utilities/type'
 import { validArrayIndex } from '../modules/arrayNumber'
 import { arrayValueContainsString } from '../modules/stringArray'
-import { runFunctionIfTrue } from '../utilities/function'
+import { reduceArrayValuesToOccurenceAmount } from '../utilities/array'
+import { returnFuncIfTrue } from '../utilities/function'
 import {
   filterStringIncludedInArray,
   stringIsNumber,
@@ -43,12 +57,12 @@ export const filterStringOnValidPets: (
 ) => boolean = filterStringIncludedInArray(validPets)
 
 const parsePetAmount: (acc: PetData, curr: string) => PetData = (acc, curr) => {
-  const { amount } = acc
+  let { amount } = acc
   const numberedCurr = Number(curr)
 
   const i = length(amount) - 1
 
-  if (amount[i][1] < 1) amount[i][1] = numberedCurr
+  if (validArrayIndex(i) && amount[i][1] < 1) amount[i][1] = numberedCurr
   else amount.push(['', numberedCurr])
 
   return { ...acc, amount }
@@ -64,16 +78,14 @@ const parsePetSingular: (acc: PetData, curr: string) => PetData = (
   acc,
   curr
 ) => {
-  const { amount, names } = acc
+  let { amount, names } = acc
 
   const i = length(names) - 1
-  const j = findIndex(tup => tup[0] === curr, amount)
 
   if (validArrayIndex(i) && !names[i][0]) names[i][0] = curr
   else names.push([curr, ''])
 
-  if (validArrayIndex(j)) amount[j][1]++
-  else amount.push([curr, 1])
+  amount = reduceArrayValuesToOccurenceAmount(amount, curr)
 
   return { amount, names }
 }
@@ -89,19 +101,52 @@ const parsePetName: (acc: PetData, curr: string) => PetData = (acc, curr) => {
   return { ...acc, names }
 }
 
-export const petReducer: (acc: PetData | undefined, curr: string) => PetData = (
-  acc = { names: [], amount: [] },
-  curr
-) =>
-  runFunctionIfTrue(stringIsNumber(curr))(parsePetAmount, acc, curr) ||
-  runFunctionIfTrue(arrayValueContainsString(pluralPets)(curr))(
-    parsePetPlural,
-    acc,
-    curr
-  ) ||
-  runFunctionIfTrue(arrayValueContainsString(validPets)(curr))(
-    parsePetSingular,
-    acc,
-    curr
-  ) ||
-  parsePetName(acc, curr)
+const isPetName = (str: string) =>
+  !anyPass([
+    stringIsNumber,
+    arrayValueContainsString(pluralPets),
+    arrayValueContainsString(validPets),
+  ])(str)
+
+export const petReducer: (
+  initial: PetData
+) => (arr: string[]) => PetData = initial => arr =>
+  arr.reduce(
+    (acc, curr) =>
+      returnFuncIfTrue(stringIsNumber(curr))(
+        parsePetAmount,
+        clone(acc),
+        curr
+      ) ||
+      returnFuncIfTrue(arrayValueContainsString(pluralPets)(curr))(
+        parsePetPlural,
+        clone(acc),
+        curr
+      ) ||
+      returnFuncIfTrue(arrayValueContainsString(validPets)(curr))(
+        parsePetSingular,
+        clone(acc),
+        curr
+      ) ||
+      returnFuncIfTrue(isPetName(curr))(parsePetName, clone(acc), curr) ||
+      clone(acc),
+    initial
+  )
+
+const petTupleNameIsValid: (tup: PetTuple) => boolean = tup => !isEmpty(tup[1])
+
+const petTupleSpeciesIsValid: (tup: PetTuple) => boolean = tup =>
+  !isEmpty(tup[0])
+
+const filterInvalidPetTuple: (tups: PetTuple[]) => PetTuple[] = pipe(
+  filter(petTupleSpeciesIsValid),
+  filter(petTupleNameIsValid)
+)
+
+export const filterInvalidPetValues = (data: PetData | string) =>
+  getType(data) === 'string'
+    ? data
+    : {
+        names: filterInvalidPetTuple((data as PetData).names),
+        amount: filterInvalidStringOccurenceTuples((data as PetData).amount),
+      }
