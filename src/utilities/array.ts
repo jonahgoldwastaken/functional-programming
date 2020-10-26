@@ -1,4 +1,5 @@
 import { upper } from 'alphabet'
+import { includes } from 'ramda'
 
 export const sortArrayOfStringsAlphabetically = (a: string, b: string) =>
   upper.indexOf(a[0]) > upper.indexOf(b[0])
@@ -9,15 +10,15 @@ export const sortArrayOfStringsAlphabetically = (a: string, b: string) =>
       : -1
     : -1
 
-export const filterStringFromArray = (filterStr: string) => (str: string) =>
-  !(str.slice().toLowerCase() === filterStr.slice().toLowerCase())
+export const arrayContainsValue: <T>(
+  arr: T[]
+) => (val: T) => boolean = arr => val => includes(val, arr)
 
-export const filterRegExFromArray = (filterRegex: RegExp) => (str: string) =>
-  !str.slice().toLowerCase().match(filterRegex)
+export const arrayIsArray = (arr: any | any[]) => Array.isArray(arr)
 
 export const filterEmptyArraysFromArray = (arr: any[]) => [...arr].length
 
-export const mapEmptyArraysInArrayToOtherValue = (val: any) => (arr: any[]) =>
+export const mapEmptyArraysInArrayToOtherValue = <T>(val: T) => (arr: T[]) =>
   arr.length ? [...arr] : val
 
 export const reduceArrayValuesToOccurenceAmount = <T>(

@@ -1,6 +1,6 @@
-import { map, pipe } from 'ramda'
+import { pipe } from 'ramda'
 import {
-  filterStringsInArray,
+  filterStringIncludedInArray,
   mapCapitaliseString,
   replaceStringForObjectValue,
 } from '../utilities/strings'
@@ -45,7 +45,7 @@ export const validLanguages = [
 
 export const filterStringOnValidLanguages: (
   lang: string
-) => boolean = filterStringsInArray(validLanguages)
+) => boolean = filterStringIncludedInArray(validLanguages)
 
 export const mapExpandShortenedLanguage: (
   lang: string

@@ -12,15 +12,24 @@ export const replaceStringThroughRegex = (
 export const mapCapitaliseString = (str: string) =>
   `${str.slice(0, 1).toUpperCase()}${str.slice(1)}`
 
-export const stringIsValidString = (str: string) =>
-  str.length && Number.isNaN(Number(str)) ? true : false
+export const stringEqualsString = (filterStr: string) => (str: string) =>
+  !(str.slice().toLowerCase() === filterStr.slice().toLowerCase())
 
-export const filterStringsInArray: (
+export const stringMatchesRegEx = (filterRegex: RegExp) => (str: string) =>
+  !str.slice().toLowerCase().match(filterRegex)
+
+export const stringIsNumber = (str: string) => !Number.isNaN(Number(str))
+
+export const filterStringLength = (str: string) => !!str.length
+
+export const filterStringIsNaN = (str: string) => Number.isNaN(Number(str))
+
+export const filterStringIncludedInArray: (
   testArr: string[]
 ) => (str: string) => boolean = arr => str =>
   [...arr].map(val => val.toLowerCase()).includes(str.toLowerCase())
 
-export const replaceStringForObjectValue = (obj: GenericObject) => (
+export const replaceStringForObjectValue = (obj: GenericObject<string>) => (
   str: string
 ) => obj[str] ?? str
 
