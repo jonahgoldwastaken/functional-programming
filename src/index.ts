@@ -1,36 +1,36 @@
+// import { resolve } from 'path'
 // require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
-import { writeFileSync } from 'fs'
-import { resolve } from 'path'
 import { filter, map, pipe, reject, sort, toLower } from 'ramda'
 import data from './data/practice-data.json'
 import {
   filterStringOnValidLanguages,
-  mapExpandCapitaliseLanguage
+  mapExpandCapitaliseLanguage,
 } from './helpers/languages'
 import {
   filterInvalidPetValues,
   irrelevantValues,
   petLookUpTable,
-  petReducer
+  petReducer,
 } from './helpers/pets'
 import { mapRunFuncIfCurrValIsArr } from './modules/arrayFunction'
 import { pickKeySplitVals } from './modules/objectArray'
 import {
   arrayValueContainsString,
-  filterValidStringsWithFunc
+  filterValidStringsWithFunc,
 } from './modules/stringArray'
+import { writeResult } from './modules/writeFile'
 import {
   mapEmptyArraysInArrayToOtherValue,
-  sortArrayOfStringsAlphabetically
+  sortArrayOfStringsAlphabetically,
 } from './utilities/array'
 import {
   filterStringLength,
   replaceStringForObjectValue,
   stringEqualsString,
-  stringMatchesRegEx
+  stringMatchesRegEx,
 } from './utilities/strings'
 
-const parseData = (data: GenericObject<string>[]) => {
+const parseLanguages = (data: GenericObject<string>[]) => {
   const parsedLangauges = pipe(
     pickKeySplitVals('gesprokenTalen'),
     map(
@@ -41,9 +41,10 @@ const parseData = (data: GenericObject<string>[]) => {
       )
     )
   )(data)
+  writeResult(parsedLangauges)('languages-test')
+}
 
-  // console.log(parsedLangauges)
-
+const parsePets = (data: GenericObject<string>[]) => {
   const parsedPets = pipe(
     pickKeySplitVals('huisDieren'),
     map(
@@ -62,12 +63,13 @@ const parseData = (data: GenericObject<string>[]) => {
     )
   )(data)
 
-  // console.log(parsedPets)
-
-  writeFileSync(
-    resolve(__dirname, 'pets-test.json'),
-    Buffer.from(JSON.stringify(parsedPets))
-  )
+  writeResult(parsedPets)('pets-test')
 }
 
-parseData(data)
+const parseSurveyData = (data: GenericObject<string>[]) => {
+  parseLanguages(data)
+
+  parsePets(data)
+}
+
+parseSurveyData(data)
