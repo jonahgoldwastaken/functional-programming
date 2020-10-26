@@ -1,4 +1,4 @@
-import { anyPass, clone, filter, isEmpty, length, pipe } from 'ramda'
+import { anyPass, clone, filter, isEmpty, length, pipe, reduce } from 'ramda'
 import { validArrayIndex } from '../modules/arrayNumber'
 import { filterInvalidStringOccurenceTuples } from '../modules/occurenceTuple'
 import { arrayValueContainsString } from '../modules/stringArray'
@@ -90,8 +90,8 @@ const isPetName = (str: string) =>
 
 export const petReducer: (
   initial: PetData
-) => (arr: string[]) => PetData = initial => arr =>
-  arr.reduce(
+) => (arr: string[]) => PetData = initial =>
+  reduce(
     (acc, curr) =>
       returnFuncIfTrue(stringIsNumber(curr))(
         parsePetAmount,
