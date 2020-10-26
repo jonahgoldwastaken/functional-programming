@@ -1,30 +1,34 @@
+// require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
 import { writeFileSync } from 'fs'
 import { resolve } from 'path'
 import { filter, map, pipe, reject, sort, toLower } from 'ramda'
 import data from './data/practice-data.json'
 import {
   filterStringOnValidLanguages,
-  mapExpandCapitaliseLanguage,
+  mapExpandCapitaliseLanguage
 } from './helpers/languages'
-import { filterInvalidPetValues, irrelevantValues, petLookUpTable, petReducer } from './helpers/pets'
+import {
+  filterInvalidPetValues,
+  irrelevantValues,
+  petLookUpTable,
+  petReducer
+} from './helpers/pets'
 import { mapRunFuncIfCurrValIsArr } from './modules/arrayFunction'
 import { pickKeySplitVals } from './modules/objectArray'
-import { filterInvalidStringOccurenceTuples } from './modules/occurenceTuple'
 import {
   arrayValueContainsString,
-  filterValidStringsWithFunc,
+  filterValidStringsWithFunc
 } from './modules/stringArray'
 import {
   mapEmptyArraysInArrayToOtherValue,
-  sortArrayOfStringsAlphabetically,
+  sortArrayOfStringsAlphabetically
 } from './utilities/array'
 import {
   filterStringLength,
   replaceStringForObjectValue,
   stringEqualsString,
-  stringMatchesRegEx,
+  stringMatchesRegEx
 } from './utilities/strings'
-require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
 
 const parseData = (data: GenericObject<string>[]) => {
   const parsedLangauges = pipe(

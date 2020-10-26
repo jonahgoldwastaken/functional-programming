@@ -1,27 +1,24 @@
 import {
-  all,
-  allPass,
   anyPass,
   clone,
-  empty,
+
   filter,
   isEmpty,
   length,
-  nth,
-  pick,
-  pipe,
-  __,
+
+
+  pipe
 } from 'ramda'
-import { filterInvalidStringOccurenceTuples } from '../modules/occurenceTuple'
-import { getType } from '../utilities/type'
 import { validArrayIndex } from '../modules/arrayNumber'
+import { filterInvalidStringOccurenceTuples } from '../modules/occurenceTuple'
 import { arrayValueContainsString } from '../modules/stringArray'
 import { reduceArrayValuesToOccurenceAmount } from '../utilities/array'
 import { returnFuncIfTrue } from '../utilities/function'
 import {
   filterStringIncludedInArray,
-  stringIsNumber,
+  stringIsNumber
 } from '../utilities/strings'
+import { getType } from '../utilities/type'
 
 export const validPets = [
   'kat',

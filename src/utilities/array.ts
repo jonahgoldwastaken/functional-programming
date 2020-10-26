@@ -1,6 +1,5 @@
 import { upper } from 'alphabet'
-import { filter, includes, isEmpty } from 'ramda'
-import { getType } from './type'
+import { includes } from 'ramda'
 
 export const sortArrayOfStringsAlphabetically = (a: string, b: string) =>
   upper.indexOf(a[0]) > upper.indexOf(b[0])

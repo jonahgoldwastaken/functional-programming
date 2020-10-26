@@ -2,7 +2,7 @@ import { pipe } from 'ramda'
 import {
   filterStringIncludedInArray,
   mapCapitaliseString,
-  replaceStringForObjectValue,
+  replaceStringForObjectValue
 } from '../utilities/strings'
 
 const shortenedLanguages = {
