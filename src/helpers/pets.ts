@@ -25,6 +25,8 @@ export const validPets = [
   'katten',
   'vissen',
   'vogels',
+  'puma',
+  'goudvis',
 ]
 
 export const petLookUpTable = {
@@ -35,6 +37,7 @@ export const petLookUpTable = {
   hont: 'hond',
   poes: 'kat',
   guppen: 'vissen',
+  chihuahua: 'hond',
 }
 
 export const irrelevantValues = ['Moeder', 'Vader']
