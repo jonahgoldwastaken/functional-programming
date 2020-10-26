@@ -1,14 +1,4 @@
-import {
-  anyPass,
-  clone,
-
-  filter,
-  isEmpty,
-  length,
-
-
-  pipe
-} from 'ramda'
+import { anyPass, clone, filter, isEmpty, length, pipe } from 'ramda'
 import { validArrayIndex } from '../modules/arrayNumber'
 import { filterInvalidStringOccurenceTuples } from '../modules/occurenceTuple'
 import { arrayValueContainsString } from '../modules/stringArray'
@@ -16,7 +6,7 @@ import { reduceArrayValuesToOccurenceAmount } from '../utilities/array'
 import { returnFuncIfTrue } from '../utilities/function'
 import {
   filterStringIncludedInArray,
-  stringIsNumber
+  stringIsNumber,
 } from '../utilities/strings'
 import { getType } from '../utilities/type'
 
@@ -32,6 +22,8 @@ export const validPets = [
   'kip',
   'cavia',
   'gup',
+  'katten',
+  'vissen',
 ]
 
 export const petLookUpTable = {
@@ -41,11 +33,8 @@ export const petLookUpTable = {
   kater: 'kat',
   hont: 'hond',
   poes: 'kat',
+  guppen: 'vissen',
 }
-
-const pluralPetLookupTable = { katten: 'kat', vissen: 'vis', guppen: 'vis' }
-
-export const pluralPets = Object.keys(pluralPetLookupTable)
 
 export const irrelevantValues = ['Moeder', 'Vader']
 
@@ -65,13 +54,7 @@ const parsePetAmount: (acc: PetData, curr: string) => PetData = (acc, curr) => {
   return { ...acc, amount }
 }
 
-const parsePetPlural: (acc: PetData, curr: string) => PetData = (acc, curr) => {
-  const singularPet = (pluralPetLookupTable as { [key: string]: string })[curr]
-
-  return parsePetSingular(acc, singularPet)
-}
-
-const parsePetSingular: (acc: PetData, curr: string) => PetData = (
+const parsePetSpecies: (acc: PetData, curr: string) => PetData = (
   acc,
   curr
 ) => {
@@ -99,11 +82,7 @@ const parsePetName: (acc: PetData, curr: string) => PetData = (acc, curr) => {
 }
 
 const isPetName = (str: string) =>
-  !anyPass([
-    stringIsNumber,
-    arrayValueContainsString(pluralPets),
-    arrayValueContainsString(validPets),
-  ])(str)
+  !anyPass([stringIsNumber, arrayValueContainsString(validPets)])(str)
 
 export const petReducer: (
   initial: PetData
@@ -115,13 +94,8 @@ export const petReducer: (
         clone(acc),
         curr
       ) ||
-      returnFuncIfTrue(arrayValueContainsString(pluralPets)(curr))(
-        parsePetPlural,
-        clone(acc),
-        curr
-      ) ||
       returnFuncIfTrue(arrayValueContainsString(validPets)(curr))(
-        parsePetSingular,
+        parsePetSpecies,
         clone(acc),
         curr
       ) ||
