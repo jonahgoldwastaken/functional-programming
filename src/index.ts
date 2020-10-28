@@ -12,7 +12,7 @@ import {
   petLookUpTable,
   petReducer,
 } from './helpers/pets'
-import { mapRunFuncIfCurrValIsArr } from './modules/arrayFunction'
+import { runFuncIfValIsArr } from './modules/arrayFunction'
 import { pickKeySplitVals } from './modules/objectArray'
 import {
   arrayValueContainsString,
@@ -55,7 +55,7 @@ const parsePets = (data: GenericObject<string>[]) => {
         reject(arrayValueContainsString(irrelevantValues)),
         map(pipe(toLower, replaceStringForObjectValue(petLookUpTable))),
         mapEmptyArraysInArrayToOtherValue('Heeft geen huisdieren'),
-        mapRunFuncIfCurrValIsArr<string, PetData>(
+        runFuncIfValIsArr<string, PetData>(
           petReducer({ amount: [], names: [] })
         ),
         filterInvalidPetValues

@@ -14,7 +14,7 @@ export const arrayContainsValue: <T>(
   arr: T[]
 ) => (val: T) => boolean = arr => val => includes(val, arr)
 
-export const arrayIsArray = (arr: any | any[]) => Array.isArray(arr)
+export const valIsArray = (arr: any | any[]) => Array.isArray(arr)
 
 export const filterEmptyArraysFromArray = (arr: any[]) => [...arr].length
 

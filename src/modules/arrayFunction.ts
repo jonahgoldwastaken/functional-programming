@@ -1,5 +1,6 @@
-import { arrayIsArray } from '../utilities/array'
+import { valIsArray } from '../utilities/array'
+import { returnFuncIfTrue } from '../utilities/function'
 
-export const mapRunFuncIfCurrValIsArr = <T, R>(func: (val: T[]) => R) => (
+export const runFuncIfValIsArr = <T, R>(func: (val: T[]) => R) => (
   val: T | T[]
-) => (arrayIsArray(val) ? func(val as T[]) : (val as T))
+) => returnFuncIfTrue(valIsArray(val as T))(func, val as T[]) || (val as T)
