@@ -46,9 +46,9 @@ How much do parking garages support de 24-hour economy?
 - With how many parking garages can you exit with your vehicle throughout the entire day?
 - Where are the most parking places with 24-hour availability?
 
-### Used columns
+### Used variables.
 
-Available (in Dutch) in the [wiki](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-datasets), but I have no idea which ones to use yet.
+The used variabels are available through [This link](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-variabelen).
 
 ## Project structure
 
