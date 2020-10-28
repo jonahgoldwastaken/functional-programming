@@ -48,7 +48,7 @@ How much do parking garages support de 24-hour economy?
 
 ### Used columns
 
-Available (in Dutch) in the [wiki](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-datasets)
+Available (in Dutch) in the [wiki](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-datasets) (Still a work in progress, but the datasets that I want to use are on that page as well)
 
 ## Project structure
 
