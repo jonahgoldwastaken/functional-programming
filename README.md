@@ -32,6 +32,7 @@ yarn install || yarn
 yarn watch # Watches the src & dist folder on file changes
 yarn build # Builds the TypeScript code in the src folder
 yarn start # Starts Node in the dist folder
+yarn lint  # Runs ESLint on files to check for consistent code.
 ```
 
 ## Concept
@@ -85,3 +86,4 @@ The used variables are available through [this link](https://github.com/theonejo
 - [Nodemon](https://nodemon.io)
 - [ramda](https://github.com/ramda/ramda)
 - [dotenv](https://github.com/motdotla/dotenv)
+- [ESLint](https://eslint.org) with the [ESLint Functional Plugin](https://github.com/jonaskello/eslint-plugin-functional/) and [Prettier](https://github.com/prettier/eslint-plugin-prettier) configurations (config from the ESLint Functional page with own adjustments)
