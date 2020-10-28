@@ -1,8 +1,8 @@
 # Functional Programming
 
-[Concept](#concept) • [Wiki](https://github.com/theonejonahgold/functional-programming/wiki)
+[Wiki](https://github.com/theonejonahgold/functional-programming/wiki) • [Concept](#concept) • [Practicing with survey data](https://github.com/theonejonahgold/functional-programming/wiki/Oefenen-met-survey-data-🙈)
 
-This repo is created to process data provided by de Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Dutch Vehicle Authority), and contains many different variables that can be put together, combined, made relationships with. This should create an interesting data-visualisation, which de Volkskrant can use to write an article.
+This repo is created to process data provided by de Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Dutch Vehicle Authority), and contains many different variables that can be put together, combined, made relationships with. This should create an interesting data-visualisation, which de Volkskrant can use to write an article. Read more about this in my [Debriefing](https://github.com/theonejonahgold/functional-programming/wiki/Debriefing-🐒).
 
 ## Learning goals
 
