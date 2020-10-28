@@ -1,6 +1,8 @@
 # Functional Programming
 
-This repo is created to process data provided by De Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Netherlands Vehicle Authority), and contains many different variables that can be put together, combined, made relationships of.
+[Concept](#concept) • [Wiki](https://github.com/theonejonahgold/functional-programming/wiki)
+
+This repo is created to process data provided by de Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Dutch Vehicle Authority), and contains many different variables that can be put together, combined, made relationships with. This should create an interesting data-visualisation, which de Volkskrant can use to write an article.
 
 ## Learning goals
 
@@ -34,6 +36,8 @@ yarn start # Starts Node in the dist folder
 
 ## Concept
 
+[Extended version](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧)
+
 ### Main Question
 
 How much do parking garages support de 24-hour economy?
@@ -46,9 +50,9 @@ How much do parking garages support de 24-hour economy?
 - With how many parking garages can you exit with your vehicle throughout the entire day?
 - Where are the most parking places with 24-hour availability?
 
-### Used variables.
+### Used variables
 
-The used variabels are available through [This link](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-variabelen).
+The used variables are available through [this link](https://github.com/theonejonahgold/functional-programming/wiki/Concept-🦧#gebruikte-variabelen).
 
 ## Project structure
 
