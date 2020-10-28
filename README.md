@@ -32,19 +32,33 @@ yarn build # Builds the TypeScript code in the src folder
 yarn start # Starts Node in the dist folder
 ```
 
+## Concept
+
+### Main Question
+
+How much do parking garages support de 24-hour economy?
+
+### Research questions
+
+- How many parking garages are open 24 hours a day?
+- What is the average closing time for parking garages?
+- Do parking garages change their prices during the night, and how?
+- With how many parking garages can you exit with your vehicle throughout the entire day?
+- Where are the most parking places with 24-hour availability?
+
 ## Project structure
 
 ```bash
 .
 ├── src    # Contains TS source code.
 │   ├── data      # Here, all the data files are put. For privacy reasons, this folder only contains a .gitkeep file on the public repository. You need to supply your own data.
-│   ├── helpers   # This folder is for functions used for specific use cases like language parsing.
-│   ├── modules   # The modules folder is a place where functional chains are written to parse certains columns of the provided data.
-│   ├── types     # TypeScript types, interfaces and modules live here. The compiler automatically puts these into the environment, so no extra type imports are needed.
 │   ├── utilities # Utilities are general functions that can be adapted to certain use cases. They are divided into files named after the type they manipulate.
+│   ├── helpers   # This folder is for functions used for specific use cases like language parsing.
+│   ├── modules   # The modules folder is a place where functional chains are written to parse certain columns of the provided data.
+│   ├── types     # TypeScript types, interfaces and modules live here. The compiler automatically puts these into the environment, so no extra type imports are needed.
 │   └── index.ts  # Where it all comes together. This file is run when compiled to JS code.
-├── dist   # Contains identitcal folder structure as src folder, with compiled JS code and source maps instead of TS code.
-└── config # Contains the nodemon configurations used for development of this project.
+├── dist   # Contains identical folder structure as src folder, with compiled JS code and source maps instead of TS code.
+└── config # Contains the Nodemon configurations used for development of this project.
 ```
 
 ## Functional Programming Principles Applied
