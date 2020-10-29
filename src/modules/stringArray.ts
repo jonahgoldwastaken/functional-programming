@@ -1,7 +1,7 @@
 import { filter, map, pipe, toLower } from 'ramda'
-import { arrayContainsValue } from '../utilities/array'
-import { filterStringIncludedInArray } from '../utilities/strings'
-import { filterValidStrings } from './strings'
+import { arrayContainsValue } from '../utilities/array.js'
+import { filterStringIncludedInArray } from '../utilities/strings.js'
+import { filterValidStrings } from './strings.js'
 
 type validValueFunc = (stringArr: string) => boolean
 

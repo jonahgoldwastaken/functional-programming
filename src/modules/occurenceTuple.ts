@@ -1,5 +1,5 @@
 import { filter, isEmpty, pipe } from 'ramda'
-import { getType } from '../utilities/type'
+import { getType } from '../utilities/type.js'
 
 const stringOccurenceTupleAmountIsValid = (tup: OccurenceTuple<string>) =>
   !Number.isNaN(tup[1])

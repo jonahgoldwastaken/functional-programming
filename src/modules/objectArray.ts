@@ -1,6 +1,6 @@
 import { map, pipe } from 'ramda'
-import { pickKeyFromObject } from '../utilities/object'
-import { splitStringOnRegex } from '../utilities/strings'
+import { pickKeyFromObject } from '../utilities/object.js'
+import { splitStringOnRegex } from '../utilities/strings.js'
 
 export const pickKeySplitVals: (
   key: string

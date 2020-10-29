@@ -1,5 +1,5 @@
-import { valIsArray } from '../utilities/array'
-import { returnFuncIfTrue } from '../utilities/function'
+import { valIsArray } from '../utilities/array.js'
+import { returnFuncIfTrue } from '../utilities/function.js'
 
 export const runFuncIfValIsArr = <T, R>(func: (val: T[]) => R) => (
   val: T | T[]

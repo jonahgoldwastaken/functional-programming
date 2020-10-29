@@ -1,5 +1,5 @@
 import { writeFileSync } from 'fs'
-import { resolveResults } from '../utilities/path'
+import { resolveResults } from '../utilities/path.js'
 
 export const writeResult: (
   data: GenericObject

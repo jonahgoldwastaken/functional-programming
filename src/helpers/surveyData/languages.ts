@@ -3,7 +3,7 @@ import {
   filterStringIncludedInArray,
   mapCapitaliseString,
   replaceStringForObjectValue
-} from '../../utilities/strings'
+} from '../../utilities/strings.js'
 
 const shortenedLanguages = {
   NL: 'Nederlands',

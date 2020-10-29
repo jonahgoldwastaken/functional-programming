@@ -5,30 +5,30 @@ import data from './data/practice-data.json'
 import {
   filterStringOnValidLanguages,
   mapExpandCapitaliseLanguage,
-} from './helpers/surveyData/languages'
+} from './helpers/surveyData/languages.js'
 import {
   filterInvalidPetValues,
   irrelevantValues,
   petLookUpTable,
   petReducer,
-} from './helpers/surveyData/pets'
-import { runFuncIfValIsArr } from './modules/arrayFunction'
-import { pickKeySplitVals } from './modules/objectArray'
+} from './helpers/surveyData/pets.js'
+import { runFuncIfValIsArr } from './modules/arrayFunction.js'
+import { pickKeySplitVals } from './modules/objectArray.js'
 import {
   arrayValueContainsString,
   filterValidStringsWithFunc,
-} from './modules/stringArray'
-import { writeResult } from './modules/writeFile'
+} from './modules/stringArray.js'
+import { writeResult } from './modules/writeFile.js'
 import {
   mapEmptyArraysInArrayToOtherValue,
   sortArrayOfStringsAlphabetically,
-} from './utilities/array'
+} from './utilities/array.js'
 import {
   filterStringLength,
   replaceStringForObjectValue,
   stringEqualsString,
   stringMatchesRegEx,
-} from './utilities/strings'
+} from './utilities/strings.js'
 
 const parseLanguages = (data: GenericObject<string>[]) => {
   const parsedLangauges = pipe(

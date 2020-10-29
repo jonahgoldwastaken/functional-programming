@@ -1,14 +1,14 @@
 import { anyPass, clone, filter, isEmpty, length, pipe, reduce } from 'ramda'
-import { validArrayIndex } from '../../modules/arrayNumber'
-import { filterInvalidStringOccurenceTuples } from '../../modules/occurenceTuple'
-import { arrayValueContainsString } from '../../modules/stringArray'
-import { reduceArrayValuesToOccurenceAmount } from '../../utilities/array'
-import { returnFuncIfTrue } from '../../utilities/function'
+import { validArrayIndex } from '../../modules/arrayNumber.js'
+import { filterInvalidStringOccurenceTuples } from '../../modules/occurenceTuple.js'
+import { arrayValueContainsString } from '../../modules/stringArray.js'
+import { reduceArrayValuesToOccurenceAmount } from '../../utilities/array.js'
+import { returnFuncIfTrue } from '../../utilities/function.js'
 import {
   filterStringIncludedInArray,
   stringIsNumber,
-} from '../../utilities/strings'
-import { getType } from '../../utilities/type'
+} from '../../utilities/strings.js'
+import { getType } from '../../utilities/type.js'
 
 export const validPets = [
   'kat',
