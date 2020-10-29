@@ -1,5 +1,3 @@
-// import { resolve } from 'path'
-// require('dotenv').config({ path: resolve(__dirname, '..', '.env') })
 import { filter, map, pipe, reject, sort, toLower } from 'ramda'
 import data from './data/practice-data.json'
 import {
@@ -66,9 +64,9 @@ const parsePets = (data: GenericObject<string>[]) => {
   writeResult(parsedPets)('pets-test')
 }
 
-const parseSurveyData = (data: GenericObject<string>[]) => {
+const parseSurveyData = () => {
   parseLanguages(data)
   parsePets(data)
 }
 
-parseSurveyData(data)
+parseSurveyData()

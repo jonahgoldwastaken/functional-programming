@@ -11,6 +11,7 @@
     "watch": "concurrently \"yarn:watch-src\" \"yarn:watch-dist\"",
     "build": "tsc",
     "start": "node dist",
+    "practice": "node dist/surveyData.js",
     "lint": "eslint --fix"
   },
   "dependencies": {
