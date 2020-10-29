@@ -18,5 +18,11 @@ export const filterValidStringsWithArr: (
     filter(filterStringIncludedInArray(validArr))
   )
 
-export const arrayValueContainsString = (arr: string[]) => (val: string) =>
-  pipe(toLower, pipe(map(toLower), arrayContainsValue)(arr))(val)
+/**
+ * Check if Array contains provided string value
+ * @param arr Array of strings
+ */
+export const arrayValueContainsString: (
+  arr: string[]
+) => (val: string) => boolean = (arr: string[]) =>
+  pipe(toLower, pipe(map(toLower), arrayContainsValue)(arr))

@@ -1,3 +1,7 @@
 import { greaterThan } from '../utilities/number.js'
 
-export const validArrayIndex = (i: number) => greaterThan(-1)(i)
+/**
+ * Checks if passed index is a valid array index
+ * @param i Index to check
+ */
+export const validArrayIndex: (i: number) => boolean = greaterThan(-1)
