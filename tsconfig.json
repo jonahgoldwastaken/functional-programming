@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
+    "lib": [],
     "target": "es6",
     "noImplicitAny": true,
     "moduleResolution": "node",

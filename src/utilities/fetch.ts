@@ -1,4 +1,6 @@
-import fetch from 'isomorphic-unfetch'
+import fetch, { Response } from 'node-fetch'
 
-export const fetchJSON = (url:string) => fetch(url).then(res => res.json())
+export const fetchData: (url: string) => Promise<Response> = fetch
 
+export const parseFetchToJson: (res: Response) => Promise<any> = res =>
+  res.json()
