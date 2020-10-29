@@ -3,5 +3,7 @@ dist/
 .cache/
 .env
 *.csv
-*.json
+src/**/*.json
+results/**/*.json
+dist/**/*.json
 .DS_Store
