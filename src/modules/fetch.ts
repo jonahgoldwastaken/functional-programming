@@ -1,6 +1,10 @@
 import { andThen, map, pipe } from 'ramda'
-import { fetchData, parseFetchToJson } from '../utilities/fetch.js'
+import { fetchData, parseResToJson } from '../utilities/fetch.js'
 
-export const fetchMultiple: (uri: string[]) => Promise<any>[] = map(
-  pipe(fetchData, andThen(parseFetchToJson))
+export const fetchAndParseJson: (url: string) => Promise<any> = pipe(
+  fetchData,
+  andThen(parseResToJson)
 )
+
+export const fetchAndParseMultipleJson: (uri: string[]) => any = uri =>
+  Promise.all(map(fetchAndParseJson)(uri))

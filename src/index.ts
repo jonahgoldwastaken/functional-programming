@@ -1,10 +1,10 @@
-import { fetchMultiple } from './modules/fetch.js'
+import { fetchAndParseMultipleJson } from './modules/fetch'
 
-const parseData = async () => {
-  const test = await fetchMultiple([
+const test = async () => {
+  const testing = await fetchAndParseMultipleJson([
     'https://opendata.rdw.nl/resource/mz4f-59fw.json',
   ])
-  console.log(test)
+  console.log(testing)
 }
 
-parseData()
+test()

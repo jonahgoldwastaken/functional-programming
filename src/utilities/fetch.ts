@@ -1,6 +1,5 @@
 import fetch, { Response } from 'node-fetch'
 
-export const fetchData: (url: string) => Promise<Response> = fetch
+export const fetchData: (url: string) => Promise<Response> = url => fetch(url)
 
-export const parseFetchToJson: (res: Response) => Promise<any> = res =>
-  res.json()
+export const parseResToJson: (res: Response) => Promise<any> = res => res.json()
