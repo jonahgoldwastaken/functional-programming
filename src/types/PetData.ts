@@ -3,4 +3,8 @@ type PetSpecies = string
 
 type PetTuple = [PetSpecies, PetName]
 
-type PetData = { amount: OccurenceTuple<PetSpecies>[]; names: PetTuple[] }
+// eslint-disable-next-line
+type PetData = {
+  amount: OccurenceTuple<PetSpecies>[]
+  names: PetTuple[]
+}

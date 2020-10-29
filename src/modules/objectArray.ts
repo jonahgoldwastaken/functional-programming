@@ -6,7 +6,8 @@ import { splitStringOnRegex } from '../utilities/strings.js'
  * Picks a key from object and splits values based on known and safe characters to split on
  * @param key Key to pick
  */
-export const pickKeySplitVals: (
+export function pickKeySplitVals(
   key: string
-) => (arr: GenericObject<string>[]) => string[][] = key =>
-  map(pipe(pickKeyFromObject(key), splitStringOnRegex(/[-|,|\.|:|\s]/g)))
+): (arr: GenericObject<string>[]) => string[][] {
+  return map(pipe(pickKeyFromObject(key), splitStringOnRegex(/[-|,|.|:|\s]/g)))
+}

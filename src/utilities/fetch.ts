@@ -1,13 +1,19 @@
 import fetch, { Response } from 'node-fetch'
 
+export { fetchData, parseResToJson }
+
 /**
  * Fetches data from passed URL
  * @param url URL to fetch data from
  */
-export const fetchData: (url: string) => Promise<Response> = url => fetch(url)
+function fetchData(url: string): Promise<Response> {
+  return fetch(url)
+}
 
 /**
  * Parses JSON string into a JavaScript value
  * @param res response object to parse as a JSON string
  */
-export const parseResToJson: (res: Response) => Promise<any> = res => res.json()
+function parseResToJson(res: Response): Promise<unknown> {
+  return res.json()
+}

@@ -12,15 +12,18 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:functional/external-recommended",
-    "plugin:functional/recommended"
+    "plugin:functional/recommended",
+    "prettier",
+    "prettier/@typescript-eslint"
   ],
   "plugins": [
     "@typescript-eslint",
     "functional",
-    "prettier",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/prefer-regexp-exec": "off",
+    "functional/prefer-readonly-type": "off"
   }
 }

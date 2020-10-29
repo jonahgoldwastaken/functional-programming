@@ -5,24 +5,31 @@ import { filterValidStrings } from './strings.js'
 
 type validValueFunc = (stringArr: string) => boolean
 
-export const filterValidStringsWithFunc: (
-  validValueFunc: validValueFunc
-) => (arr: string[]) => string[] = func =>
-  pipe(filter(filterValidStrings), filter(func))
+export {
+  filterValidStringsWithFunc,
+  filterValidStringsWithArr,
+  arrayValueContainsString,
+}
 
-export const filterValidStringsWithArr: (
-  validStringArr: string[]
-) => (arr: string[]) => string[] = validArr =>
-  pipe(
+function filterValidStringsWithFunc(
+  func: validValueFunc
+): (arr: string[]) => string[] {
+  return pipe(filter(filterValidStrings), filter(func))
+}
+
+function filterValidStringsWithArr(
+  validArr: string[]
+): (arr: string[]) => string[] {
+  return pipe(
     filter(filterValidStrings),
     filter(filterStringIncludedInArray(validArr))
   )
+}
 
 /**
  * Check if Array contains provided string value
  * @param arr Array of strings
  */
-export const arrayValueContainsString: (
-  arr: string[]
-) => (val: string) => boolean = (arr: string[]) =>
-  pipe(toLower, pipe(map(toLower), arrayContainsValue)(arr))
+function arrayValueContainsString(arr: string[]): (val: string) => boolean {
+  return pipe(toLower, pipe(map(toLower), arrayContainsValue)(arr))
+}

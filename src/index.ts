@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 import { fetchAndParseMultipleJson } from './modules/fetch'
 
-const parseRDWData = async () => {
+async function parseRDWData() {
   console.log(
     await fetchAndParseMultipleJson([
       'https://opendata.rdw.nl/resource/mz4f-59fw.json',
@@ -8,4 +10,4 @@ const parseRDWData = async () => {
   )
 }
 
-parseRDWData()
+void parseRDWData()

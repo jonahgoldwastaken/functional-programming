@@ -1,5 +1,9 @@
+export { getType }
+
 /**
  * Returns the type of provided value
  * @param val Value to type-check
  */
-export const getType = (val: any) => typeof val
+function getType(val: unknown): string {
+  return typeof val
+}

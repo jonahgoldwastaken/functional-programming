@@ -2,9 +2,18 @@ import { pipe } from 'ramda'
 import {
   filterStringIncludedInArray,
   mapCapitaliseString,
-  replaceStringForObjectValue
+  replaceStringForObjectValue,
 } from '../../utilities/strings.js'
 
+export {
+  filterStringOnValidLanguages,
+  mapExpandShortenedLanguage,
+  mapExpandCapitaliseLanguage,
+}
+
+/**
+ * Look-up table for shortened languages
+ */
 const shortenedLanguages = {
   NL: 'Nederlands',
   EN: 'Engels',
@@ -14,7 +23,7 @@ const shortenedLanguages = {
 /**
  * List of valid languages pulled from the practice data
  */
-export const validLanguages = [
+const validLanguages = [
   'nederlands',
   'engels',
   'duits',
@@ -43,15 +52,14 @@ export const validLanguages = [
   'eng',
 ]
 
-export const filterStringOnValidLanguages: (
-  lang: string
-) => boolean = filterStringIncludedInArray(validLanguages)
+function filterStringOnValidLanguages(lang: string): boolean {
+  return filterStringIncludedInArray(validLanguages)(lang)
+}
 
-export const mapExpandShortenedLanguage: (
-  lang: string
-) => string = replaceStringForObjectValue(shortenedLanguages)
+function mapExpandShortenedLanguage(lang: string): string {
+  return replaceStringForObjectValue(shortenedLanguages)(lang)
+}
 
-export const mapExpandCapitaliseLanguage: (langs: string) => string = pipe(
-  mapExpandShortenedLanguage,
-  mapCapitaliseString
-)
+function mapExpandCapitaliseLanguage(langs: string): string {
+  return pipe(mapExpandShortenedLanguage, mapCapitaliseString)(langs)
+}

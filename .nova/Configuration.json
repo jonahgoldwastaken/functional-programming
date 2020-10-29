@@ -1,4 +1,5 @@
 {
+  "apexskier.eslint.config.eslintConfigPath" : "\/Users\/jonahmeijers\/programmeren\/functional-programming\/.eslintrc.json",
   "apexskier.eslint.config.fixOnSave" : "Enable",
   "editor.default_syntax" : "typescript",
   "taskfinder.package-manager" : "yarn",
