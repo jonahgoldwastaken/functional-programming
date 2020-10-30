@@ -43,6 +43,7 @@ const parseLanguages = (data: GenericObject<string>[]) => {
       )
     )
   )(data)
+
   writeResult(parsedLangauges)('languages-test') // Writes the result to a file in the 'results' folder name 'languages-test'
 }
 
@@ -62,14 +63,13 @@ const parsePets = (data: GenericObject<string>[]) => {
           valIsArray,
           petReducer({ amount: [], names: [] }),
           (val: string) => always(val)()
-        ) // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
+        ), // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
+        filterInvalidPetValues // Filters invalid pet values, cleaning up the data
       )
     )
-    // filterInvalidPetValues // Filters invalid pet values, cleaning up the data
   )(data)
 
-  // writeResult(parsedPets)('pets-test')
-  console.dir(parsedPets[1])
+  writeResult(parsedPets)('pets-test')
 }
 
 const parseSurveyData = () => {
