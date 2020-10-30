@@ -1,6 +1,6 @@
 # Functional Programming
 
-[Wiki](https://github.com/theonejonahgold/functional-programming/wiki) • [Concept](#concept) • [Practicing with survey data](https://github.com/theonejonahgold/functional-programming/wiki/Oefenen-met-survey-data-🙈)
+[Wiki](https://github.com/theonejonahgold/functional-programming/wiki) • [Concept](#concept) • [Practicing with survey data](https://github.com/theonejonahgold/functional-programming/wiki/Oefenen-met-survey-data-🙈) • [Processing RDW Data](https://github.com/theonejonahgold/functional-programming/wiki/RDW-Data-verwerken-🦍)
 
 This repo is created to process data provided by de Volkskrant, so that a data visualisation can be created using D3. The data consists of parking data gathered by the RDW (Dutch Vehicle Authority), and contains many different variables that can be put together, combined, made relationships with. This should create an interesting data-visualisation, which de Volkskrant can use to write an article. Read more about this in my [Debriefing](https://github.com/theonejonahgold/functional-programming/wiki/Debriefing-🐒).
 
@@ -72,8 +72,8 @@ The used variables are available through [this link](https://github.com/theonejo
 
 ## Functional Programming Principles Applied
 
-- [Composition](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/composition.md): The combining of functions to create extra functionality
-- [Functional purity](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/impure.md): All functions give the same output when the same input is used
+- [Composition](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/composition.md): The combining of functions to create extra functionality.
+- [Functional purity](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/impure.md): All functions give the same output when the same input is used.
 - [Data immutability](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/immutability.md): All data passed into the functions is copied and then mutated, so that the original data itself is never mutated.
 - [Currying](https://en.wikipedia.org/wiki/Currying): All functions return a function that can be used in a Higher-order function.
 - [Higher order functions](https://github.com/cmda-tt/course-20-21/blob/master/examples/functional-patterns/ho-functions.md): All functions created can be passed into these to manipulate the data passed.
