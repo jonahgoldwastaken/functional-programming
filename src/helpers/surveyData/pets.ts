@@ -120,6 +120,10 @@ function parsePetName(acc: PetData, curr: string): PetData {
   }
 }
 
+function isPetName(str: string): boolean {
+  return !anyPass([stringIsNumber, arrayValueContainsString(validPets)])(str)
+}
+
 function filterInvalidPetValues(data: PetData | string): PetData | string {
   return getType(data) === 'string'
     ? data
@@ -129,8 +133,8 @@ function filterInvalidPetValues(data: PetData | string): PetData | string {
       }
 }
 
-function isPetName(str: string): boolean {
-  return !anyPass([stringIsNumber, arrayValueContainsString(validPets)])(str)
+function filterInvalidPetTuple(tups: PetTuple[]): PetTuple[] {
+  return pipe(filter(petTupleSpeciesIsValid), filter(petTupleNameIsValid))(tups)
 }
 
 function petTupleNameIsValid(tup: PetTuple): boolean {
@@ -139,8 +143,4 @@ function petTupleNameIsValid(tup: PetTuple): boolean {
 
 function petTupleSpeciesIsValid(tup: PetTuple): boolean {
   return !isEmpty(tup[0])
-}
-
-function filterInvalidPetTuple(tups: PetTuple[]): PetTuple[] {
-  return pipe(filter(petTupleSpeciesIsValid), filter(petTupleNameIsValid))(tups)
 }
