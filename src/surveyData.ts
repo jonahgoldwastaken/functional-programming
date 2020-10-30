@@ -60,10 +60,10 @@ const parsePets = (data: GenericObject<string>[]) => {
         map(pipe(toLower, replaceStringForObjectValue(petLookUpTable))), // Maps these answers, puts the strings in lowercase and replacing relevant values to the values inside the petLookUpTable
         mapEmptyArraysInArrayToOtherValue('Heeft geen huisdieren'), // Replaces all empty answers to 'Heeft geen huisdieren', stating that people which provided no valid answers
         ifElse(
-          valIsArray,
-          petReducer({ amount: [], names: [] }),
-          (val: string) => always(val)()
-        ), // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
+          valIsArray, // Checks if the current value being mapped on is an array or not
+          petReducer({ amount: [], names: [] }), // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
+          (val: string) => always(val)() // Returns a string if the current value being mapped is a string (which is the case when someone has no pets)
+        ),
         filterInvalidPetValues // Filters invalid pet values, cleaning up the data
       )
     )
