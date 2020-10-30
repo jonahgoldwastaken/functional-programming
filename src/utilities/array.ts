@@ -38,7 +38,7 @@ function arrayContainsValue<T = unknown>(arr: T[]) {
  * Checks is value passed is an array
  * @param val Value that's being checked
  */
-function valIsArray<T, R>(val: T | R[]): boolean {
+function valIsArray<T>(val: T | T[]): boolean {
   return Array.isArray(val)
 }
 
@@ -47,15 +47,15 @@ function valIsArray<T, R>(val: T | R[]): boolean {
  * @param arr Array with arrays of which some are empty
  */
 function arrayIsNotEmpty(arr: unknown[]): boolean {
-  return !arr.length
+  return !!arr.length
 }
 
 /**
  * Replace empty arrays inside an array to value passed
  * @param val The value that will be replacing the empty arrays inside passed array
  */
-function mapEmptyArraysInArrayToOtherValue<T>(val: T) {
-  return (arr: T[]): T[] | T => (arrayIsNotEmpty(arr) ? arr : val)
+function mapEmptyArraysInArrayToOtherValue<T>(val: T): (arr: T[]) => T[] | T {
+  return arr => (arrayIsNotEmpty(arr) ? arr : val)
 }
 
 /**

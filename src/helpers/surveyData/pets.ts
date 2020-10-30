@@ -142,8 +142,5 @@ function petTupleSpeciesIsValid(tup: PetTuple): boolean {
 }
 
 function filterInvalidPetTuple(tups: PetTuple[]): PetTuple[] {
-  return pipe(
-    filter(petTupleSpeciesIsValid),
-    filter(petTupleNameIsValid)
-  )(clone(tups))
+  return pipe(filter(petTupleSpeciesIsValid), filter(petTupleNameIsValid))(tups)
 }

@@ -1,5 +1,5 @@
-// @ts-nocheck
 /* eslint-disable */
+// @ts-nocheck
 
 import { always, filter, ifElse, map, pipe, reject, sort, toLower } from 'ramda'
 import data from './data/practice-data.json'
@@ -53,20 +53,23 @@ const parsePets = (data: GenericObject<string>[]) => {
       // Maps these answers
       pipe(
         filter(stringMatchesRegEx(/geen/g)), // Removes the answers saying 'geen'
-        filter(stringEqualsString('N>V>T>')), // Removes one answers euqaling this string
+        filter(stringEqualsString('N>V>T>')), // Removes one answers equaling this string
         filter(filterStringLength), // Filters empty string out of array
         reject(arrayValueContainsString(irrelevantValues)), // Rejects all strings containing irrelevant values
         map(pipe(toLower, replaceStringForObjectValue(petLookUpTable))), // Maps these answers, puts the strings in lowercase and replacing relevant values to the values inside the petLookUpTable
         mapEmptyArraysInArrayToOtherValue('Heeft geen huisdieren'), // Replaces all empty answers to 'Heeft geen huisdieren', stating that people which provided no valid answers
-        ifElse(valIsArray, petReducer({ amount: [], names: [] }), always) as
-          | PetData
-          | string // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
+        ifElse(
+          valIsArray,
+          petReducer({ amount: [], names: [] }),
+          (val: string) => always(val)()
+        ) // Reduces pets, creating an object with an OccurenceTuple array (amounts) and PetTuples (names) array. These types can be found in the types folder
       )
-    ),
-    filterInvalidPetValues // Filters invalid pet values, cleaning up the data
+    )
+    // filterInvalidPetValues // Filters invalid pet values, cleaning up the data
   )(data)
 
-  writeResult(parsedPets)('pets-test')
+  // writeResult(parsedPets)('pets-test')
+  console.dir(parsedPets[1])
 }
 
 const parseSurveyData = () => {
