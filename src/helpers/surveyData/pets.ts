@@ -18,8 +18,11 @@ import {
 } from '../../utilities/strings.js'
 import { getType } from '../../utilities/type.js'
 
-export { petReducer, filterInvalidPetValues }
+export { petReducer, filterInvalidPetValues, filterStringOnValidPets }
 
+/**
+ * List all valid pets pulled from the practice data
+ */
 const validPets = [
   'kat',
   'hond',
@@ -39,6 +42,9 @@ const validPets = [
   'goudvis',
 ]
 
+/**
+ * Look-up table for pet species
+ */
 export const petLookUpTable = {
   dwerg: 'hond',
   teckel: '',
@@ -50,11 +56,10 @@ export const petLookUpTable = {
   chihuahua: 'hond',
 }
 
+/**
+ * List of irrelevant values that exist in the pet data
+ */
 export const irrelevantValues = ['Moeder', 'Vader']
-
-export const filterStringOnValidPets: (
-  str: string
-) => boolean = filterStringIncludedInArray(validPets)
 
 function petReducer(initial: PetData): (arr: string[]) => PetData {
   return reduce(
@@ -73,6 +78,19 @@ function petReducer(initial: PetData): (arr: string[]) => PetData {
     ),
     initial
   )
+}
+
+function filterStringOnValidPets(str: string): boolean {
+  return filterStringIncludedInArray(validPets)(str)
+}
+
+function filterInvalidPetValues(data: PetData | string): PetData | string {
+  return getType(data) === 'string'
+    ? data
+    : {
+        names: filterInvalidPetTuple((data as PetData).names),
+        amount: filterInvalidStringOccurenceTuples((data as PetData).amount),
+      }
 }
 
 function parsePetAmount(acc: PetData, curr: string): PetData {
@@ -122,15 +140,6 @@ function parsePetName(acc: PetData, curr: string): PetData {
 
 function isPetName(str: string): boolean {
   return !anyPass([stringIsNumber, arrayValueContainsString(validPets)])(str)
-}
-
-function filterInvalidPetValues(data: PetData | string): PetData | string {
-  return getType(data) === 'string'
-    ? data
-    : {
-        names: filterInvalidPetTuple((data as PetData).names),
-        amount: filterInvalidStringOccurenceTuples((data as PetData).amount),
-      }
 }
 
 function filterInvalidPetTuple(tups: PetTuple[]): PetTuple[] {
