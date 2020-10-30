@@ -41,15 +41,16 @@ yarn lint  # Runs ESLint on files to check for consistent code.
 
 ### Main Question
 
-How much do parking garages support de 24-hour economy?
+What is the relation between distance and availability of parking places to hot-spots in the city?
 
 ### Research questions
 
+- Where are the parking places situated?
 - How many parking garages are open 24 hours a day?
 - What is the average closing time for parking garages?
 - Do parking garages change their prices during the night, and how?
 - With how many parking garages can you exit with your vehicle throughout the entire day?
-- Where are the most parking places with 24-hour availability?
+- What is the capacity of the parking places?
 
 ### Used variables
 
