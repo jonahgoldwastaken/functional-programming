@@ -12,8 +12,7 @@
     "build": "tsc",
     "start": "node dist",
     "practice": "node dist/surveyData.js",
-    "lint": "eslint --fix src",
-    "postinstall": "patch-package"
+    "lint": "eslint --fix src"
   },
   "dependencies": {
     "alphabet": "^1.0.0",
