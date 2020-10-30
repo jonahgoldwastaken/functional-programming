@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "watch-src": "tsc -w",
-    "watch-dist": "nodemon --config config/nodemon-dist.json",
+    "watch-dist": "nodemon --config config/nodemon.json",
     "watch": "concurrently \"yarn:watch-src\" \"yarn:watch-dist\"",
     "build": "tsc",
     "start": "node dist",
