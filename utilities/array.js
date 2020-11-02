@@ -1,6 +1,6 @@
 import { upper } from 'alphabet'
 import { clone, includes } from 'ramda'
-import { validArrayIndex } from '../modules/arrayNumber'
+import { validArrayIndex } from '../../modules/arrayNumber'
 
 export {
   sortArrayOfStringsAlphabetically,
@@ -16,7 +16,7 @@ export {
  * @param a first argument passed by array.sort to callback
  * @param b second argument passed by array.sort to callback
  */
-function sortArrayOfStringsAlphabetically(a: string, b: string): number {
+function sortArrayOfStringsAlphabetically(a, b) {
   return upper.indexOf(a[0]) > upper.indexOf(b[0])
     ? 1
     : upper.indexOf(a[0]) === upper.indexOf(b[0])
@@ -30,15 +30,15 @@ function sortArrayOfStringsAlphabetically(a: string, b: string): number {
  * Check if a certain value exists in an array containing values of the same type
  * @param arr Array of any type
  */
-function arrayContainsValue<T = unknown>(arr: T[]) {
-  return (val: T): boolean => includes(val, arr)
+function arrayContainsValue(arr) {
+  return val => includes(val, arr)
 }
 
 /**
  * Checks is value passed is an array
  * @param val Value that's being checked
  */
-function valIsArray<T>(val: T | T[]): boolean {
+function valIsArray(val) {
   return Array.isArray(val)
 }
 
@@ -46,7 +46,7 @@ function valIsArray<T>(val: T | T[]): boolean {
  * Filters empty arrays from an array containg arrays
  * @param arr Array with arrays of which some are empty
  */
-function arrayIsNotEmpty(arr: unknown[]): boolean {
+function arrayIsNotEmpty(arr) {
   return !!arr.length
 }
 
@@ -54,7 +54,7 @@ function arrayIsNotEmpty(arr: unknown[]): boolean {
  * Replace empty arrays inside an array to value passed
  * @param val The value that will be replacing the empty arrays inside passed array
  */
-function mapEmptyArraysInArrayToOtherValue<T>(val: T): (arr: T[]) => T[] | T {
+function mapEmptyArraysInArrayToOtherValue(val) {
   return arr => (arrayIsNotEmpty(arr) ? arr : val)
 }
 
@@ -64,10 +64,7 @@ function mapEmptyArraysInArrayToOtherValue<T>(val: T): (arr: T[]) => T[] | T {
  * @param acc The accumulator, an OccurenceTuple
  * @param curr The current value being looped over
  */
-function reduceArrayValuesToOccurenceAmount<T>(
-  acc: OccurenceTuple<T>[],
-  curr: T
-): OccurenceTuple<T>[] {
+function reduceArrayValuesToOccurenceAmount(acc, curr) {
   const i = acc.findIndex(tup => tup[0] === curr)
   // With a lot of thanks to Gufran Mirza @ https://ednsquare.com/story/immutable-update-patters-in-javascript-update-objects-and-arrays-------C2NqWN for this code
   return validArrayIndex(i)

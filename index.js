@@ -1,6 +1,6 @@
 import { andThen, pipe } from 'ramda'
-import { areaManagerMapper } from './helpers/RDWData.js'
-import { fetchAndParseMultipleJson } from './modules/fetch.js'
+import { areaManagerMapper } from '../helpers/RDWData.js.js'
+import { fetchAndParseMultipleJson } from '../modules/fetch.js.js'
 
 //eslint-disable-next-line
 console.log(
@@ -17,6 +17,6 @@ console.log(
   ])
 )
 
-async function parseRDWData(uri: string[]): Promise<AreaManager[]> {
+async function parseRDWData(uri) {
   return await pipe(fetchAndParseMultipleJson, andThen(areaManagerMapper))(uri)
 }

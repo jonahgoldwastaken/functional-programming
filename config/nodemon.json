@@ -1,8 +1,8 @@
 {
   "watch": [
-    "dist/"
+    "."
   ],
-  "ext": "js,json",
-  "exec": "node dist",
+  "ext": "js",
+  "exec": "node .",
   "delay": 500
 }

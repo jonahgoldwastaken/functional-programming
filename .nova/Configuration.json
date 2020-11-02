@@ -3,6 +3,6 @@
   "apexskier.eslint.config.fixOnSave" : "Enable",
   "editor.default_syntax" : "typescript",
   "taskfinder.package-manager" : "yarn",
-  "workspace.color" : 1,
-  "workspace.name" : "Functional Programming"
+  "workspace.color" : 2,
+  "workspace.name" : "Frontend Data"
 }

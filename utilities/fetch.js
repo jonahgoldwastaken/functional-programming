@@ -1,4 +1,4 @@
-import fetch, { Response } from 'node-fetch'
+import fetch from 'node-fetch'
 
 export { fetchData, parseResToJson }
 
@@ -6,7 +6,7 @@ export { fetchData, parseResToJson }
  * Fetches data from passed URL
  * @param url URL to fetch data from
  */
-function fetchData(url: string): Promise<Response> {
+function fetchData(url) {
   return fetch(url)
 }
 
@@ -14,6 +14,6 @@ function fetchData(url: string): Promise<Response> {
  * Parses JSON string into a JavaScript value
  * @param res response object to parse as a JSON string
  */
-function parseResToJson(res: Response): Promise<GenericObject[]> {
-  return res.json() as Promise<GenericObject[]>
+function parseResToJson(res) {
+  return res.json()
 }
