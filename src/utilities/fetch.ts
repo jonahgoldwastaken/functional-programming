@@ -14,6 +14,6 @@ function fetchData(url: string): Promise<Response> {
  * Parses JSON string into a JavaScript value
  * @param res response object to parse as a JSON string
  */
-function parseResToJson(res: Response): Promise<unknown> {
-  return res.json()
+function parseResToJson(res: Response): Promise<GenericObject[]> {
+  return res.json() as Promise<GenericObject[]>
 }

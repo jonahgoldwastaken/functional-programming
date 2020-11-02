@@ -1,6 +1,6 @@
-import { map, reduce } from 'ramda'
+import { assoc, Dictionary, keys, reduce } from 'ramda'
 
-export { pickKeyFromObject, convertObjectKeys }
+export { pickKeyFromObject, renameObjectKeys }
 
 /**
  * Returns only the value from passed key in provided object
@@ -14,20 +14,14 @@ function pickKeyFromObject(
 
 /**
  * Changes the keys inside provided object to values of newKeysObj
- * @param newKeysObj Lookup table containing old keys as keys and new keys as values
+ * @param keyMap Lookup table containing old keys as keys and new keys as values
  */
-function convertObjectKeys<obj extends GenericObject<string>>(
-  newKeysObj: obj
-): (objArray: obj[]) => obj[] {
-  return objArray =>
-    map<obj, obj>(keys =>
-      reduce(
-        (acc: GenericObject, curr: string) =>
-          ({
-            ...acc,
-            [newKeysObj[curr]]: keys[curr],
-          } as obj),
-        {} as obj
-      )(Object.keys(keys))
-    )(objArray)
+function renameObjectKeys(
+  keysMap: Dictionary<string>
+): (obj: Record<string, unknown>) => Record<string, unknown> {
+  return obj =>
+    reduce(
+      (acc, key: string) => assoc(keysMap[key] || key, obj[key], acc),
+      {}
+    )(keys(obj))
 }
