@@ -11,6 +11,8 @@ export {
   filterStringIncludedInArray,
   replaceStringForObjectValue,
   stringContainsString,
+  removeStringFromString,
+  removeRegExFromString,
 }
 
 /**
@@ -109,4 +111,12 @@ function replaceStringForObjectValue(obj) {
  */
 function stringContainsString(compareStr) {
   return str => str.includes(compareStr)
+}
+
+function removeStringFromString(strPartial) {
+  return str => str.replace(strPartial, '')
+}
+
+function removeRegExFromString(regex) {
+  return str => str.replace(regex, '')
 }

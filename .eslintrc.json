@@ -1,5 +1,10 @@
 {
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
   "env": {
+    "node": true,
     "es6": true
   },
   "extends": [
@@ -10,6 +15,7 @@
   ],
   "plugins": ["functional", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "no-undef": "error"
   }
 }

@@ -1,7 +1,10 @@
 {
-  "apexskier.eslint.config.eslintConfigPath" : "\/Users\/jonahmeijers\/programmeren\/functional-programming\/.eslintrc.json",
+  "apexskier.eslint.config.eslintConfigPath" : "\/Users\/jonahmeijers\/programmeren\/frontend-data\/.eslintrc.json",
   "apexskier.eslint.config.fixOnSave" : "Enable",
-  "editor.default_syntax" : "typescript",
+  "apexskier.typescript.config.isEnabledForJavascript" : "Disable",
+  "cssvalidator.enabled" : true,
+  "editor.default_syntax" : "javascript",
+  "taskfinder.auto-composer" : false,
   "taskfinder.package-manager" : "yarn",
   "workspace.color" : 2,
   "workspace.name" : "Frontend Data"

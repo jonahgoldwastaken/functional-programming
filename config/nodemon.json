@@ -1,8 +1,6 @@
 {
-  "watch": [
-    "."
-  ],
+  "watch": ["."],
   "ext": "js",
-  "exec": "node .",
+  "exec": "node --experimental-modules .",
   "delay": 500
 }

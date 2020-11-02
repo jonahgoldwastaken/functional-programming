@@ -2,14 +2,14 @@
   "name": "functional-programming",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "repository": "git@github.com:theonejonahgold/functional-programming.git",
   "author": "Jonah Meijers <jonahmeijers97@gmail.com>",
   "license": "MIT",
   "scripts": {
     "watch": "nodemon --config config/nodemon.json",
-    "start": "node .",
-    "lint": "eslint --fix src",
-    "postinstall": "patch-package"
+    "start": "node --experimental-modules .",
+    "lint": "eslint --fix ."
   },
   "dependencies": {
     "alphabet": "^1.0.0",
@@ -20,9 +20,11 @@
     "ramda-adjunct": "^2.28.0"
   },
   "devDependencies": {
+    "@types/ramda": "^0.27.32",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-functional": "^3.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "nodemon": "^2.0.6",
     "prettier": "2.1.2"
   }

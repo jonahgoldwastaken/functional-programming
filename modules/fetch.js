@@ -1,4 +1,4 @@
-import { andThen, map, compose, pipe } from 'ramda'
+import { andThen, map, pipe, otherwise } from 'ramda'
 import { fetchData, parseResToJson } from '../utilities/fetch.js'
 
 export { fetchAndParseJson, fetchAndParseMultipleJson }
@@ -8,7 +8,7 @@ export { fetchAndParseJson, fetchAndParseMultipleJson }
  * @param url URL to fetch data from
  */
 function fetchAndParseJson(url) {
-  return pipe(fetchData, andThen(parseResToJson))(url)
+  return pipe(fetchData, otherwise(console.log), andThen(parseResToJson))(url)
 }
 
 /**

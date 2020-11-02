@@ -1,6 +1,6 @@
 import { upper } from 'alphabet'
 import { clone, includes } from 'ramda'
-import { validArrayIndex } from '../../modules/arrayNumber'
+import { validArrayIndex } from '../modules/arrayNumber.js'
 
 export {
   sortArrayOfStringsAlphabetically,
@@ -9,6 +9,7 @@ export {
   arrayIsNotEmpty,
   mapEmptyArraysInArrayToOtherValue,
   reduceArrayValuesToOccurenceAmount,
+  unwrapArrayValueAtIndex,
 }
 
 /**
@@ -70,4 +71,8 @@ function reduceArrayValuesToOccurenceAmount(acc, curr) {
   return validArrayIndex(i)
     ? [...acc.slice(0, i), [curr, clone(acc[i][1]) + 1], ...acc.slice(i)]
     : [...acc, [curr, 1]]
+}
+
+function unwrapArrayValueAtIndex(i) {
+  return array => array[i]
 }
