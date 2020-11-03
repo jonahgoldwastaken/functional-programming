@@ -13,7 +13,6 @@
   "dependencies": {
     "alphabet": "^1.0.0",
     "d3": "^6.2.0",
-    "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.1.0",
     "node-fetch": "^2.6.1",
     "ramda": "^0.27.1",

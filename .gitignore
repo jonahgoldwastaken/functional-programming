@@ -1,10 +1,5 @@
 node_modules/
-dist/
 .cache/
-.env
-*.csv
-src/**/*.json
-results/**/*.json
-dist/**/*.json
 .DS_Store
-build
+build/
+yarn-error.log
