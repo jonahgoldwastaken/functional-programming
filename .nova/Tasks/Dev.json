@@ -2,7 +2,7 @@
   "actions" : {
     "run" : {
       "enabled" : true,
-      "script" : "yarn watch"
+      "script" : "yarn dev"
     }
   },
   "identifier" : "7DFE6D85-11AF-40FB-93F2-5F9CA7C15AC3",

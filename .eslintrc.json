@@ -4,18 +4,36 @@
     "ecmaVersion": 2020
   },
   "env": {
-    "node": true,
+    "node": true
+    "browser": true,
     "es6": true
   },
   "extends": [
     "eslint:recommended",
-    "plugin:functional/external-recommended",
-    "plugin:functional/recommended",
     "prettier"
   ],
-  "plugins": ["functional", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error", 
+      {
+        "arrowParens": "avoid",
+        "semi": false,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    ],
     "no-undef": "error"
-  }
+  },
+  "overrides": [{
+    "files": ["src/modules/*.js", "src/helpers/*.js", "src/utilities/*.js"],
+    "plugins": ["functional", "prettier"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:functional/external-recommended",
+      "plugin:functional/recommended",
+      "prettier"
+    ]
+  }]
 }
