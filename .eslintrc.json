@@ -4,7 +4,7 @@
     "ecmaVersion": 2020
   },
   "env": {
-    "node": true
+    "node": true,
     "browser": true,
     "es6": true
   },
@@ -27,7 +27,7 @@
     "no-undef": "error"
   },
   "overrides": [{
-    "files": ["src/modules/*.js", "src/helpers/*.js", "src/utilities/*.js"],
+    "files": ["src/modules/**/*.js", "src/helpers/**/*.js", "src/utilities/**/*.js"],
     "plugins": ["functional", "prettier"],
     "extends": [
       "eslint:recommended",

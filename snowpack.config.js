@@ -1,16 +1,12 @@
-const path = require('path')
-
 module.exports = {
   mount: {
     public: '/',
     src: '/_dist_',
   },
-  exclude: [
-    ".nova", "config",
-  ],
+  exclude: ['.nova', 'config'],
   plugins: [
     ['@snowpack/plugin-postcss', {}],
-    ['@snowpack/plugin-optimize', {}]
+    ['@snowpack/plugin-optimize', {}],
   ],
   install: [
     /* ... */
@@ -22,7 +18,7 @@ module.exports = {
     open: 'none',
   },
   buildOptions: {
-    sourceMaps: true
+    sourceMaps: true,
   },
   proxy: {
     /* ... */

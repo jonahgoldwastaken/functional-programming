@@ -1,0 +1,10 @@
+{
+  "actions" : {
+    "run" : {
+      "enabled" : true,
+      "script" : "yarn lint"
+    }
+  },
+  "identifier" : "03D1BABE-FBC1-4AF2-AF70-CE24037ECB1C",
+  "openLogOnRun" : "fail"
+}
