@@ -10,7 +10,7 @@
   "taskfinder.auto-composer" : false,
   "taskfinder.package-manager" : "yarn",
   "workspace.color" : 2,
-  "workspace.name" : "Frontend Data",
+  "workspace.name" : "Functional Programming",
   "workspace.preview_type" : "custom",
   "workspace.preview_url" : "http:\/\/localhost:8080"
 }
